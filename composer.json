@@ -1,0 +1,24 @@
+{
+    "name": "manychat/manychat-api",
+    "description": "ManyChat API PHP library",
+    "keywords": ["manychat", "php", "chatbot"],
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Yury Gavrilov",
+            "email": "yuriy@manychat.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+		"php": ">=7.1"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ManyChat\\": "src/"
+        }
+    }
+}
