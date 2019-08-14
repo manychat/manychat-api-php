@@ -3,13 +3,13 @@
 
 namespace ManyChat\fb;
 
-use ManyChat\API;
-use ManyChat\APIMethod;
+use ManyChat\BaseAPI;
 use ManyChat\fb\page\Page;
 use ManyChat\fb\sending\Sending;
 use ManyChat\fb\subscriber\Subscriber;
+use ManyChat\NamedAPIStructure;
 
-class Fb extends APIMethod
+class Fb extends NamedAPIStructure
 {
     /** @var Page */
     public $page;
@@ -18,10 +18,9 @@ class Fb extends APIMethod
     /** @var Subscriber */
     public $subscriber;
 
-    public function __construct(API $api)
+    public function __construct(BaseAPI $api)
     {
-        $className = strtolower(substr(strrchr(__CLASS__, "\\"), 1));
-        parent::__construct($className, $api, null);
+        parent::__construct($api, null);
 
         $this->page = new Page($api, $this);
         $this->sending = new Sending($api, $this);

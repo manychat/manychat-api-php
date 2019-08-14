@@ -12,7 +12,7 @@ class APIMethod
     protected $api;
     protected $parent;
 
-    public function __construct(string $name, API $api, ?APIMethod $parent)
+    public function __construct(string $name, BaseAPI $api, ?APIMethod $parent)
     {
         $this->name = $name;
         $this->api = $api;

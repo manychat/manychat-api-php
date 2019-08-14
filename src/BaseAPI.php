@@ -1,20 +1,20 @@
 <?php
 
 /**
- * This file is part of ManyChat API PHP library.
+ * This file is part of ManyChat BaseAPI PHP library.
  *
- * ManyChat API PHP library is free software: you can redistribute it and/or modify
+ * ManyChat BaseAPI PHP library is free software: you can redistribute it and/or modify
  *    it under the terms of the GNU General Public License as published by
  *    the Free Software Foundation, either version 3 of the License, or
  *    (at your option) any later version.
  *
- * ManyChat API PHP library is distributed in the hope that it will be useful,
+ * ManyChat BaseAPI PHP library is distributed in the hope that it will be useful,
  *    but WITHOUT ANY WARRANTY; without even the implied warranty of
  *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *    GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- *    along with ManyChat API PHP library.  If not, see <https://www.gnu.org/licenses/>.
+ *    along with ManyChat BaseAPI PHP library.  If not, see <https://www.gnu.org/licenses/>.
  *
  * @license GPL
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -22,11 +22,10 @@
 
 namespace ManyChat;
 
-use ManyChat\Exception\InvalidActionException;
 use ManyChat\Exception\CallMethodNotSucceedException;
-use ManyChat\fb\Fb;
+use ManyChat\Exception\InvalidActionException;
 
-class API
+class BaseAPI
 {
     public const API_URL = 'https://api.manychat.com';
 
@@ -34,13 +33,10 @@ class API
     protected $token;
     /** @var Request */
     protected $request;
-    /** @var Fb */
-    public $fb;
 
     public function __construct(string $token)
     {
         $this->token = $token;
-        $this->fb = new Fb($this);
         $headers = [
             'Authorization: Bearer ' . $token,
             'Content-Type: application/json',
@@ -53,9 +49,9 @@ class API
     }
 
     /**
-     * Get current ManyChat API token
+     * Get current ManyChat BaseAPI token
      *
-     * @return string
+     * @return string Current ManyChat BaseAPI token
      */
     public function getToken(): string
     {
@@ -63,40 +59,31 @@ class API
     }
 
     /**
-     * Set ManyChat API token
+     * Set ManyChat BaseAPI token
      *
-     * @param string $token ManyChat API token
+     * @param string $token ManyChat BaseAPI token
      */
     public function setToken($token): void
     {
         $this->token = $token;
     }
 
-    public function __get(string $name): APIMethod
-    {
-        return new APIMethod($name, $this, null);
-    }
-
-    public function __set(string $name, $value): void
-    {
-        throw new InvalidActionException('ManyChat\\API object doesn\'t support property setting');
-    }
-
-    public function __isset(string $name): bool
-    {
-        return true;
-    }
-
     public function callMethod(string $method, array $arguments = [], int $type = Request::GET): array
     {
-        if ($type === Request::GET) {
-            $result = $this->request->get(self::API_URL . $method, $arguments);
-        } else if ($type === Request::POST) {
-            $argumentsEncoded = json_encode($arguments);
-            $result = $this->request->post(self::API_URL . $method, $argumentsEncoded);
+        switch ($type) {
+            case Request::GET:
+                $result = $this->request->get(self::API_URL . $method, $arguments);
+                break;
+            case Request::POST:
+                $argumentsEncoded = json_encode($arguments);
+                $result = $this->request->post(self::API_URL . $method, $argumentsEncoded);
+                break;
+            default:
+                throw new InvalidActionException("Unknown type {$type}");
+
         }
+
         $result = json_decode($result, true);
-        var_dump($result);
         if (!isset($result['status']) || $result['status'] !== 'success') {
             $message = "Calling method {$method} didn't succeed";
             if (isset($result['message'])) {

@@ -25,7 +25,7 @@ namespace ManyChat\Exception;
 
 use Exception;
 
-class InvalidActionException extends Exception
+class NotInitialisedException extends Exception
 {
 
 }

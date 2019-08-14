@@ -3,18 +3,18 @@
 
 namespace ManyChat\fb\page;
 
-use ManyChat\API;
-use ManyChat\APIMethod;
+use ManyChat\Exception\CallMethodNotSucceedException;
+use ManyChat\NamedAPIStructure;
 use ManyChat\Request;
 
-class Page extends APIMethod
+class Page extends NamedAPIStructure
 {
-    public function __construct(API $api, ?APIMethod $parent)
-    {
-        $className = strtolower(substr(strrchr(__CLASS__, "\\"), 1));
-        parent::__construct($className, $api, $parent);
-    }
-
+    /**
+     * Get information about the page that corresponds to the current token
+     *
+     * @return array The result of calling BaseAPI method
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function getInfo(): array
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);

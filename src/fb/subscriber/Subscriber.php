@@ -3,18 +3,11 @@
 
 namespace ManyChat\fb\subscriber;
 
-use ManyChat\API;
-use ManyChat\APIMethod;
+use ManyChat\NamedAPIStructure;
 use ManyChat\Request;
 
-class Subscriber extends APIMethod
+class Subscriber extends NamedAPIStructure
 {
-    public function __construct(API $api, ?APIMethod $parent)
-    {
-        $className = strtolower(substr(strrchr(__CLASS__, "\\"), 1));
-        parent::__construct($className, $api, $parent);
-    }
-
     public function getInfo(int $subscriber_id): array
     {
         $arguments = [
