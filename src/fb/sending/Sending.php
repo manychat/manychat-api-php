@@ -11,7 +11,8 @@ class Sending extends APIMethod
 {
     public function __construct(API $api, ?APIMethod $parent)
     {
-        parent::__construct('sending', $api, $parent);
+        $className = strtolower(substr(strrchr(__CLASS__, "\\"), 1));
+        parent::__construct($className, $api, $parent);
     }
 
     public function sendContent(int $subscriber_id, array $data, string $message_tag): array

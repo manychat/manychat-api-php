@@ -11,7 +11,8 @@ class Page extends APIMethod
 {
     public function __construct(API $api, ?APIMethod $parent)
     {
-        parent::__construct('page', $api, $parent);
+        $className = strtolower(substr(strrchr(__CLASS__, "\\"), 1));
+        parent::__construct($className, $api, $parent);
     }
 
     public function getInfo(): array

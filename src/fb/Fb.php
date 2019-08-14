@@ -20,7 +20,9 @@ class Fb extends APIMethod
 
     public function __construct(API $api)
     {
-        parent::__construct('fb', $api, null);
+        $className = strtolower(substr(strrchr(__CLASS__, "\\"), 1));
+        parent::__construct($className, $api, null);
+
         $this->page = new Page($api, $this);
         $this->sending = new Sending($api, $this);
         $this->subscriber = new Subscriber($api, $this);

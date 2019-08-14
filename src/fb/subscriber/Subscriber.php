@@ -11,7 +11,8 @@ class Subscriber extends APIMethod
 {
     public function __construct(API $api, ?APIMethod $parent)
     {
-        parent::__construct('subscriber', $api, $parent);
+        $className = strtolower(substr(strrchr(__CLASS__, "\\"), 1));
+        parent::__construct($className, $api, $parent);
     }
 
     public function getInfo(int $subscriber_id): array
