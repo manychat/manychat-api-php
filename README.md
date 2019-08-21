@@ -2,20 +2,14 @@
 
 ## Usage
 
-* As an object:
-
-
+As an object:
 
     use ManyChat\ManyChat;
     
     $api = new ManyChat('1234567890123456:1234567890ABCDEFGHIJKLMNOPQRSTUV');
     $pageInfo = $api->fb->page->getInfo();
 
-
-
-* As a singleton:
-
-
+ As a singleton:
 
     use ManyChat\MC;
     
