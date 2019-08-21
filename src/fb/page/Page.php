@@ -29,9 +29,12 @@ use ManyChat\Request;
 class Page extends NamedAPIStructure
 {
     /**
-     * Get information about the page that corresponds to the current token
+     * Gets information about the page that corresponds to the current token
      *
-     * @return array The result of calling BaseAPI method
+     * @see https://api.manychat.com/swagger#/Page/get_fb_page_getInfo Documentation
+     * of /fb/page/getInfo method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
      * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function getInfo(): array
@@ -41,6 +44,17 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName);
     }
 
+    /**
+     * Creates tag
+     *
+     * @param string $name Tag name
+     *
+     * @see https://api.manychat.com/swagger#/Page/post_fb_page_createTag Documentation
+     * of /fb/page/createTag method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function createTag(string $name): array
     {
         $arguments = [
@@ -51,6 +65,15 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Gets current page tags list
+     *
+     * @see https://api.manychat.com/swagger#/Page/get_fb_page_getTags Documentation
+     * of /fb/page/getTags method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function getTags(): array
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
@@ -58,6 +81,17 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName);
     }
 
+    /**
+     * Removes tag by its ID
+     *
+     * @param integer $tag_id Tag ID
+     *
+     * @see https://api.manychat.com/swagger#/Page/post_fb_page_removeTag Documentation
+     * of /fb/page/removeTag method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function removeTag(int $tag_id): array
     {
         $arguments = [
@@ -68,6 +102,17 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Removes tag by its name
+     *
+     * @param string $tag_name Tag name
+     *
+     * @see https://api.manychat.com/swagger#/Page/post_fb_page_removeTagByName Documentation
+     * of /fb/page/removeTagByName method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function removeTagByName(string $tag_name): array
     {
         $arguments = [
@@ -78,6 +123,15 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Gets current page widgets
+     *
+     * @see https://api.manychat.com/swagger#/Page/get_fb_page_getWidgets Documentation
+     * of /fb/page/getWidgets method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function getWidgets(): array
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
@@ -85,6 +139,15 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName);
     }
 
+    /**
+     * Gets current page custom fields
+     *
+     * @see https://api.manychat.com/swagger#/Page/get_fb_page_getCustomFields Documentation
+     * of /fb/page/getCustomFields method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function getCustomFields(): array
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
@@ -92,6 +155,15 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName);
     }
 
+    /**
+     * Gets current page bot fields
+     *
+     * @see https://api.manychat.com/swagger#/Page/get_fb_page_getBotFields Documentation
+     * of /fb/page/getBotFields method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function getBotFields(): array
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
@@ -99,6 +171,19 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName);
     }
 
+    /**
+     * Creates bot field
+     *
+     * @param string $name Bot field name
+     * @param string $type Bot field type
+     * @param string $description Description of the bot field
+     *
+     * @see https://api.manychat.com/swagger#/Page/post_fb_page_createBotField Documentation
+     * of /fb/page/createBotField method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function createBotField(string $name, string $type, string $description): array
     {
         $arguments = [
@@ -111,6 +196,18 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Sets bot field value by its ID
+     *
+     * @param integer $field_id Bot field ID
+     * @param string $field_value Bot field value
+     *
+     * @see https://api.manychat.com/swagger#/Page/post_fb_page_setBotField Documentation
+     * of /fb/page/setBotField method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function setBotField(int $field_id, string $field_value): array
     {
         $arguments = [
@@ -122,6 +219,18 @@ class Page extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Sets bot field value by its name
+     *
+     * @param string $field_name Bot field name
+     * @param string $field_value Bot field value
+     *
+     * @see https://api.manychat.com/swagger#/Page/post_fb_page_setBotFieldByName Documentation
+     * of /fb/page/setBotFieldByName method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function setBotFieldByName(string $field_name, string $field_value): array
     {
         $arguments = [

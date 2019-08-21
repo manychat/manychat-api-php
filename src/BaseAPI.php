@@ -49,9 +49,9 @@ class BaseAPI
     }
 
     /**
-     * Get current ManyChat BaseAPI token
+     * Get current ManyChat API token
      *
-     * @return string Current ManyChat BaseAPI token
+     * @return string Current ManyChat API token
      */
     public function getToken(): string
     {
@@ -59,9 +59,9 @@ class BaseAPI
     }
 
     /**
-     * Set ManyChat BaseAPI token
+     * Set ManyChat API token
      *
-     * @param string $token ManyChat BaseAPI token
+     * @param string $token ManyChat API token
      */
     public function setToken($token): void
     {

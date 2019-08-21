@@ -22,11 +22,23 @@
 
 namespace ManyChat\fb\subscriber;
 
+use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\NamedAPIStructure;
 use ManyChat\Request;
 
 class Subscriber extends NamedAPIStructure
 {
+    /**
+     * Gets information about the subscriber by its ID
+     *
+     * @param integer $subscriber_id Subscriber ID
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/get_fb_subscriber_getInfo Documentation
+     * of /fb/subscriber/getInfo method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function getInfo(int $subscriber_id): array
     {
         $arguments = [
@@ -37,6 +49,17 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::GET);
     }
 
+    /**
+     * Finds subscribers by name
+     *
+     * @param string $name Name
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/get_fb_subscriber_findByName Documentation
+     * of /fb/subscriber/findByName method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function findByName(string $name): array
     {
         $arguments = [
@@ -47,6 +70,17 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::GET);
     }
 
+    /**
+     * Gets information about the subscriber by user_ref
+     *
+     * @param integer $user_ref User ref
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/get_fb_subscriber_getInfoByUserRef Documentation
+     * of /fb/subscriber/getInfoByUserRef method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function getInfoByUserRef(int $user_ref): array
     {
         $arguments = [
@@ -57,6 +91,18 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::GET);
     }
 
+    /**
+     * Finds subscribers by custom field value
+     *
+     * @param integer $field_id Custom field ID
+     * @param string $field_value Custom field value
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/get_fb_subscriber_findByCustomField Documentation
+     * of /fb/subscriber/findByCustomField method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function findByCustomField(int $field_id, string $field_value): array
     {
         $arguments = [
@@ -68,6 +114,18 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::GET);
     }
 
+    /**
+     * Adds tag by its ID to the subscriber
+     *
+     * @param integer $subscriber_id Subscriber ID
+     * @param integer $tag_id Tag ID
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/post_fb_subscriber_addTag Documentation
+     * of /fb/subscriber/addTag method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function addTag(int $subscriber_id, int $tag_id): array
     {
         $arguments = [
@@ -79,6 +137,18 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Adds tag by its name to the subscriber
+     *
+     * @param integer $subscriber_id Subscriber ID
+     * @param string $tag_name Tag name
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/post_fb_subscriber_addTagByName Documentation
+     * of /fb/subscriber/addTagByName method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function addTagByName(int $subscriber_id, string $tag_name): array
     {
         $arguments = [
@@ -90,6 +160,18 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Removes tag by its ID from the subscriber
+     *
+     * @param integer $subscriber_id Subscriber ID
+     * @param integer $tag_id Tag ID
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/post_fb_subscriber_removeTag Documentation
+     * of /fb/subscriber/removeTag method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function removeTag(int $subscriber_id, int $tag_id): array
     {
         $arguments = [
@@ -101,6 +183,18 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Removes tag by its name from the subscriber
+     *
+     * @param integer $subscriber_id Subscriber ID
+     * @param string $tag_name Tag name
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/post_fb_subscriber_removeTagByName Documentation
+     * of /fb/subscriber/removeTagByName method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function removeTagByName(int $subscriber_id, string $tag_name): array
     {
         $arguments = [
@@ -112,6 +206,19 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Sets custom field value by its ID to the subscriber
+     *
+     * @param integer $subscriber_id Subscriber ID
+     * @param integer $field_id Custom field ID
+     * @param string $field_value Custom field value
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/post_fb_subscriber_setCustomField Documentation
+     * of /fb/subscriber/setCustomField method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function setCustomField(int $subscriber_id, int $field_id, string $field_value): array
     {
         $arguments = [
@@ -124,6 +231,19 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Sets custom field value by its name to the subscriber
+     *
+     * @param integer $subscriber_id Subscriber ID
+     * @param string $field_name Custom field ID
+     * @param string $field_value Custom field value
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/post_fb_subscriber_setCustomFieldByName Documentation
+     * of /fb/subscriber/setCustomFieldByName method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function setCustomFieldByName(int $subscriber_id, string $field_name, string $field_value): array
     {
         $arguments = [
@@ -136,6 +256,18 @@ class Subscriber extends NamedAPIStructure
         return $this->api->callMethod($methodName, $arguments, Request::POST);
     }
 
+    /**
+     * Verifies subscriber by signed request
+     *
+     * @param integer $subscriber_id Subscriber ID
+     * @param string $signed_request Signed request
+     *
+     * @see https://api.manychat.com/swagger#/Subscriber/post_fb_subscriber_verifyBySignedRequest Documentation
+     * of /fb/subscriber/verifyBySignedRequest method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function verifyBySignedRequest(int $subscriber_id, string $signed_request): array
     {
         $arguments = [
