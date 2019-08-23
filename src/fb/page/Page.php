@@ -41,7 +41,7 @@ class Page extends NamedAPIStructure
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName);
+        return $this->getApi()->callMethod($methodName);
     }
 
     /**
@@ -62,7 +62,7 @@ class Page extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -78,7 +78,7 @@ class Page extends NamedAPIStructure
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName);
+        return $this->getApi()->callMethod($methodName);
     }
 
     /**
@@ -99,7 +99,7 @@ class Page extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -120,7 +120,7 @@ class Page extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -136,7 +136,7 @@ class Page extends NamedAPIStructure
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName);
+        return $this->getApi()->callMethod($methodName);
     }
 
     /**
@@ -152,7 +152,7 @@ class Page extends NamedAPIStructure
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName);
+        return $this->getApi()->callMethod($methodName);
     }
 
     /**
@@ -168,7 +168,7 @@ class Page extends NamedAPIStructure
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName);
+        return $this->getApi()->callMethod($methodName);
     }
 
     /**
@@ -193,7 +193,7 @@ class Page extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -216,7 +216,7 @@ class Page extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -239,7 +239,7 @@ class Page extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
 }

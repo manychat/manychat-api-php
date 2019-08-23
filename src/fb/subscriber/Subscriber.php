@@ -46,7 +46,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::GET);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::GET);
     }
 
     /**
@@ -67,7 +67,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::GET);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::GET);
     }
 
     /**
@@ -88,7 +88,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::GET);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::GET);
     }
 
     /**
@@ -111,7 +111,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::GET);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::GET);
     }
 
     /**
@@ -134,7 +134,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -157,7 +157,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -180,7 +180,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -203,7 +203,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -228,7 +228,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -253,7 +253,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -276,7 +276,7 @@ class Subscriber extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
 }

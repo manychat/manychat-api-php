@@ -30,9 +30,9 @@ class BaseAPI
     public const API_URL = 'https://api.manychat.com';
 
     /** @var string */
-    protected $token;
+    private $token;
     /** @var Request */
-    protected $request;
+    private $request;
 
     public function __construct(string $token)
     {

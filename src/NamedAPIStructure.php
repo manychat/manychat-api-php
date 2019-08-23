@@ -22,9 +22,9 @@
 
 namespace ManyChat;
 
-class NamedAPIStructure extends APIMethod
+class NamedAPIStructure extends APIStructure
 {
-    public function __construct(BaseAPI $api, ?APIMethod $parent)
+    public function __construct(BaseAPI $api, ?APIStructure $parent)
     {
         $className = strtolower(substr(strrchr(get_class($this), "\\"), 1));
         parent::__construct($className, $api, $parent);

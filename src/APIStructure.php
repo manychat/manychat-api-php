@@ -25,32 +25,62 @@ namespace ManyChat;
 use ManyChat\Exception\InvalidActionException;
 
 
-class APIMethod
+class APIStructure
 {
-    protected $name;
-    protected $api;
-    protected $parent;
+    private $name;
+    private $api;
+    private $parent;
 
-    public function __construct(string $name, BaseAPI $api, ?APIMethod $parent)
+    public function __construct(string $name, BaseAPI $api, ?APIStructure $parent)
     {
         $this->name = $name;
         $this->api = $api;
         $this->parent = $parent;
     }
 
-    public function __get($name)
+    public function __get(string $name): APIStructure
     {
-        return new APIMethod($name, $this->api, $this);
+        return new APIStructure($name, $this->api, $this);
     }
 
     public function __set($name, $value)
     {
-        throw new InvalidActionException('ManyChat\\APIMethod object doesn\'t support property setting');
+        throw new InvalidActionException('ManyChat\\APIStructure object doesn\'t support property setting');
     }
 
-    public function __isset($name)
+    public function __isset(string $name): bool
     {
         return true;
+    }
+
+    protected function getName(): string
+    {
+        return $this->name;
+    }
+
+    protected function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    protected function getApi(): BaseAPI
+    {
+        return $this->api;
+    }
+
+    protected function setApi(BaseAPI $api): void
+    {
+        $this->api = $api;
+    }
+
+    protected function getParent(): ?APIStructure
+    {
+        return $this->parent;
+    }
+
+    protected function setParent(?APIStructure $parent): void
+    {
+        $this->parent = $parent;
     }
 
     protected function getMethodAddress($name): string
@@ -65,7 +95,7 @@ class APIMethod
         return $methodAddress;
     }
 
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments): array
     {
         $methodName = $this->getMethodAddress($name);
 

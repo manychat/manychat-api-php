@@ -22,10 +22,13 @@
 
 namespace ManyChat;
 
+use ManyChat\Exception\NotInitialisedException;
 use ManyChat\fb\Fb;
 
-class ManyChat
+final class ManyChat
 {
+    /** @var ManyChat */
+    private static $instance;
     /** @var Fb */
     public $fb;
 
@@ -34,4 +37,19 @@ class ManyChat
         $api = new BaseAPI($token);
         $this->fb = new Fb($api);
     }
+
+    public static function api(): ManyChat
+    {
+        if (null === static::$instance) {
+            throw new NotInitialisedException('Please initialise library with calling ManyChat::init method');
+        }
+
+        return static::$instance;
+    }
+
+    public static function init(string $token): void
+    {
+        static::$instance = new static($token);
+    }
+
 }

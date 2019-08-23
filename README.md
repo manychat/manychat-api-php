@@ -2,6 +2,9 @@
 
 ## Usage
 
+First of all, you need to get the ManyChat API token in the API tab of the setting of your page at manychat.com.
+Here are some examples of the library usage with `1234567890123456:1234567890ABCDEFGHIJKLMNOPQRSTUV` API token:
+
 As an object:
 
     use ManyChat\ManyChat;
@@ -9,11 +12,11 @@ As an object:
     $api = new ManyChat('1234567890123456:1234567890ABCDEFGHIJKLMNOPQRSTUV');
     $pageInfo = $api->fb->page->getInfo();
 
- As a singleton:
+As a singleton:
 
-    use ManyChat\MC;
+    use ManyChat\ManyChat;
     
-    MC::init('1234567890123456:1234567890ABCDEFGHIJKLMNOPQRSTUV');
-    $pageInfo = MC::api()->fb->page->getInfo();
+    ManyChat::init('1234567890123456:1234567890ABCDEFGHIJKLMNOPQRSTUV');
+    $pageInfo = ManyChat::api()->fb->page->getInfo();
 
 

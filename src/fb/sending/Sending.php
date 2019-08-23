@@ -50,7 +50,7 @@ class Sending extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -73,7 +73,7 @@ class Sending extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
     /**
@@ -96,7 +96,7 @@ class Sending extends NamedAPIStructure
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
-        return $this->api->callMethod($methodName, $arguments, Request::POST);
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
     }
 
 }
