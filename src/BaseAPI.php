@@ -25,13 +25,18 @@ namespace ManyChat;
 use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\Exception\InvalidActionException;
 
+/**
+ * Main wrapper to ManyChat's API
+ * @package ManyChat
+ */
 class BaseAPI
 {
+    /** @var string ManyChat API base URL */
     public const API_URL = 'https://api.manychat.com';
 
-    /** @var string */
+    /** @var string $token ManyChat API token */
     private $token;
-    /** @var Request */
+    /** @var Request $request CURL-request wrapper */
     private $request;
 
     public function __construct(string $token)
@@ -68,6 +73,17 @@ class BaseAPI
         $this->token = $token;
     }
 
+    /**
+     * Calls ManyChat's API method $method with arguments $arguments and request type $type
+     *
+     * @param string $method ManyChat API method
+     * @param array $arguments Arguments for method
+     * @param int $type Request type (Request::GET or Request::POST)
+     *
+     * @return array ManyChat API response
+     * @throws InvalidActionException If $type not in [Request::GET, Request::POST]
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
     public function callMethod(string $method, array $arguments = [], int $type = Request::GET): array
     {
         switch ($type) {
@@ -80,7 +96,6 @@ class BaseAPI
                 break;
             default:
                 throw new InvalidActionException("Unknown type {$type}");
-
         }
 
         $result = json_decode($result, true);

@@ -26,6 +26,10 @@ use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\NamedAPIStructure;
 use ManyChat\Request;
 
+/**
+ * ManyChat's API /fb/sending/ namespace structure wrapper
+ * @package ManyChat\fb\sending
+ */
 class Sending extends NamedAPIStructure
 {
     /**

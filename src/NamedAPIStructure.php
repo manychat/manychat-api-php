@@ -22,6 +22,10 @@
 
 namespace ManyChat;
 
+/**
+ * API-structure that uses for structure-element name of the class
+ * @package ManyChat
+ */
 class NamedAPIStructure extends APIStructure
 {
     public function __construct(BaseAPI $api, ?APIStructure $parent)

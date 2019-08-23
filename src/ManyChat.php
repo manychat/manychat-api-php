@@ -25,19 +25,34 @@ namespace ManyChat;
 use ManyChat\Exception\NotInitialisedException;
 use ManyChat\fb\Fb;
 
+/**
+ * Main class for library usage
+ * @package ManyChat
+ */
 final class ManyChat
 {
-    /** @var ManyChat */
+    /** @var ManyChat $instance ManyChat class instance to use in singleton */
     private static $instance;
-    /** @var Fb */
+    /** @var Fb $fb ManyChat's API /fb/ namespace */
     public $fb;
 
+    /**
+     * Initialises ManyChat object with ManyChat's API token $token
+     *
+     * @param string $token ManyChat's API token
+     */
     public function __construct(string $token)
     {
         $api = new BaseAPI($token);
         $this->fb = new Fb($api);
     }
 
+    /**
+     * Returns ManyChat instance If singleton object was initialised
+     *
+     * @return ManyChat ManyChat instance
+     * @throws NotInitialisedException If instance wasn't initialised with ManyChat::init method
+     */
     public static function api(): ManyChat
     {
         if (null === static::$instance) {
@@ -47,6 +62,11 @@ final class ManyChat
         return static::$instance;
     }
 
+    /**
+     * Initialises singleton instance with token $token
+     *
+     * @param string $token ManyChat's API token
+     */
     public static function init(string $token): void
     {
         static::$instance = new static($token);

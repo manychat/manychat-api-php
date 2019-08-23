@@ -26,6 +26,10 @@ use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\NamedAPIStructure;
 use ManyChat\Request;
 
+/**
+ * ManyChat's API /fb/subscriber/ namespace structure wrapper
+ * @package ManyChat\fb\subscriber
+ */
 class Subscriber extends NamedAPIStructure
 {
     /**

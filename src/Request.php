@@ -24,14 +24,23 @@ namespace ManyChat;
 
 use ManyChat\Exception\RequestCURLException;
 
+/**
+ * CURL-request wrapper
+ * @package ManyChat
+ */
 class Request
 {
+    /** @var integer HTTP method GET */
     public const GET = 1;
+    /** @var integer HTTP method POST */
     public const POST = 2;
 
-    protected $curl;
-    protected $defaultHeaders;
-    protected $defaultCURLOptions;
+    /** @var resource|false $curl CURL session object */
+    private $curl;
+    /** @var array $defaultHeaders Default request headers */
+    private $defaultHeaders;
+    /** @var array $defaultCURLOptions Default CURL options */
+    private $defaultCURLOptions;
 
     public function __construct($defaultHeaders = [], $defaultCURLOptions = [])
     {
@@ -40,7 +49,15 @@ class Request
         $this->defaultCURLOptions = $defaultCURLOptions;
     }
 
-    public function request(array $curlOptions)
+    /**
+     * Makes CURL request with given CURL options
+     *
+     * @param array $curlOptions CURL options
+     *
+     * @return string Request's response
+     * @throws RequestCURLException If the request didn't succeed
+     */
+    public function request(array $curlOptions): string
     {
         if (!empty($this->defaultHeaders)) {
             if (!isset($curlOptions[CURLOPT_HTTPHEADER])) {
@@ -59,7 +76,16 @@ class Request
         return $result;
     }
 
-    public function get(string $url, ?array $data = [])
+    /**
+     * Makes CURL GET-request to the $url with parameters $data
+     *
+     * @param string $url URL
+     * @param array|null $data GET-request parameters
+     *
+     * @return string Request's response
+     * @throws RequestCURLException If the request didn't succeed
+     */
+    public function get(string $url, ?array $data = []): string
     {
         if (!empty($data)) {
             $url = $url . '?' . http_build_query($data);
@@ -72,6 +98,15 @@ class Request
         return $this->request($options);
     }
 
+    /**
+     * Makes CURL POST-request to the $url with parameters $data
+     *
+     * @param string $url URL
+     * @param string $data POST-request parameters
+     *
+     * @return string Request's response
+     * @throws RequestCURLException If the request didn't succeed
+     */
     public function post(string $url, string $data)
     {
         $options = [

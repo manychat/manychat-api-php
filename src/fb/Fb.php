@@ -28,13 +28,17 @@ use ManyChat\fb\sending\Sending;
 use ManyChat\fb\subscriber\Subscriber;
 use ManyChat\NamedAPIStructure;
 
+/**
+ * ManyChat's API /fb/ namespace structure wrapper
+ * @package ManyChat\fb
+ */
 class Fb extends NamedAPIStructure
 {
-    /** @var Page */
+    /** @var Page ManyChat's API /fb/page/ namespace structure */
     public $page;
-    /** @var Sending */
+    /** @var Sending ManyChat's API /fb/sending/ namespace structure */
     public $sending;
-    /** @var Subscriber */
+    /** @var Subscriber ManyChat's API /fb/subscriber/ namespace structure */
     public $subscriber;
 
     public function __construct(BaseAPI $api)
