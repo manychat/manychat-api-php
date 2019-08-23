@@ -24,6 +24,8 @@ namespace ManyChat;
 
 use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\Exception\InvalidActionException;
+use ManyChat\Exception\JSONDecodeErrorException;
+use ManyChat\Exception\RequestCURLException;
 
 /**
  * Main wrapper to ManyChat's API
@@ -36,6 +38,7 @@ class BaseAPI
 
     /** @var string $token ManyChat API token */
     private $token;
+
     /** @var Request $request CURL-request wrapper */
     private $request;
 
@@ -43,7 +46,7 @@ class BaseAPI
     {
         $this->token = $token;
         $headers = [
-            'Authorization: Bearer ' . $token,
+            'Authorization: Bearer '.$token,
             'Content-Type: application/json',
         ];
         $curlOptions = [
@@ -82,23 +85,29 @@ class BaseAPI
      *
      * @return array ManyChat API response
      * @throws InvalidActionException If $type not in [Request::GET, Request::POST]
+     * @throws RequestCURLException If HTTP request didn't succeed
+     * @throws JSONDecodeErrorException If ManyChat's JSON response couldn't be parsed
      * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function callMethod(string $method, array $arguments = [], int $type = Request::GET): array
     {
         switch ($type) {
             case Request::GET:
-                $result = $this->request->get(self::API_URL . $method, $arguments);
+                $result = $this->request->get(self::API_URL.$method, $arguments);
                 break;
             case Request::POST:
                 $argumentsEncoded = json_encode($arguments);
-                $result = $this->request->post(self::API_URL . $method, $argumentsEncoded);
+                $result = $this->request->post(self::API_URL.$method, $argumentsEncoded);
                 break;
             default:
                 throw new InvalidActionException("Unknown type {$type}");
         }
 
         $result = json_decode($result, true);
+        if ($result === null) {
+            throw new JSONDecodeErrorException('Couldn\'t parse response JSON: '.json_last_error_msg());
+        }
+
         if (!isset($result['status']) || $result['status'] !== 'success') {
             $message = "Calling method {$method} didn't succeed";
             if (isset($result['message'])) {

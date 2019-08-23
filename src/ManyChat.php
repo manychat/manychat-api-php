@@ -33,6 +33,7 @@ final class ManyChat
 {
     /** @var ManyChat $instance ManyChat class instance to use in singleton */
     private static $instance;
+
     /** @var Fb $fb ManyChat's API /fb/ namespace */
     public $fb;
 

@@ -20,35 +20,11 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace ManyChat\fb;
+namespace ManyChat\Exception;
 
-use ManyChat\BaseAPI;
-use ManyChat\fb\page\Page;
-use ManyChat\fb\sending\Sending;
-use ManyChat\fb\subscriber\Subscriber;
-use ManyChat\NamedAPIStructure;
+use Exception;
 
-/**
- * ManyChat's API /fb/ namespace structure wrapper
- * @package ManyChat\fb
- */
-class Fb extends NamedAPIStructure
+class JSONDecodeErrorException extends Exception
 {
-    /** @var Page ManyChat's API /fb/page/ namespace structure */
-    public $page;
 
-    /** @var Sending ManyChat's API /fb/sending/ namespace structure */
-    public $sending;
-
-    /** @var Subscriber ManyChat's API /fb/subscriber/ namespace structure */
-    public $subscriber;
-
-    public function __construct(BaseAPI $api)
-    {
-        parent::__construct($api, null);
-
-        $this->page = new Page($api, $this);
-        $this->sending = new Sending($api, $this);
-        $this->subscriber = new Subscriber($api, $this);
-    }
 }

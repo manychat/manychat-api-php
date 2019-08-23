@@ -33,8 +33,10 @@ class APIStructure
 {
     /** @var string $name APIStructure name */
     private $name;
+
     /** @var BaseAPI $api BaseAPI instance */
     private $api;
+
     /** @var APIStructure|null $parent Parent's APIStructure */
     private $parent;
 
@@ -144,14 +146,15 @@ class APIStructure
      * it will return '/foo/bar/methodName' string
      *
      * @param string $name Method name
+     *
      * @return string Full method path
      */
     protected function getMethodAddress(string $name): string
     {
-        $methodAddress = '/' . $this->name . '/' . $name;
+        $methodAddress = '/'.$this->name.'/'.$name;
         $parent = $this->parent;
         while ($parent !== null) {
-            $methodAddress = '/' . $parent->name . $methodAddress;
+            $methodAddress = '/'.$parent->name.$methodAddress;
             $parent = $parent->parent;
         }
 

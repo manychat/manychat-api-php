@@ -37,8 +37,10 @@ class Request
 
     /** @var resource|false $curl CURL session object */
     private $curl;
+
     /** @var array $defaultHeaders Default request headers */
     private $defaultHeaders;
+
     /** @var array $defaultCURLOptions Default CURL options */
     private $defaultCURLOptions;
 
@@ -88,7 +90,7 @@ class Request
     public function get(string $url, ?array $data = []): string
     {
         if (!empty($data)) {
-            $url = $url . '?' . http_build_query($data);
+            $url = $url.'?'.http_build_query($data);
         }
 
         $options = [

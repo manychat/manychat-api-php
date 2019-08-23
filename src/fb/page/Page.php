@@ -53,11 +53,11 @@ class Page extends NamedAPIStructure
      *
      * @param string $name Tag name
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Page/post_fb_page_createTag Documentation
      * of /fb/page/createTag method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function createTag(string $name): array
     {
@@ -90,11 +90,11 @@ class Page extends NamedAPIStructure
      *
      * @param integer $tag_id Tag ID
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Page/post_fb_page_removeTag Documentation
      * of /fb/page/removeTag method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function removeTag(int $tag_id): array
     {
@@ -111,11 +111,11 @@ class Page extends NamedAPIStructure
      *
      * @param string $tag_name Tag name
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Page/post_fb_page_removeTagByName Documentation
      * of /fb/page/removeTagByName method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function removeTagByName(string $tag_name): array
     {
@@ -182,11 +182,11 @@ class Page extends NamedAPIStructure
      * @param string $type Bot field type
      * @param string $description Description of the bot field
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Page/post_fb_page_createBotField Documentation
      * of /fb/page/createBotField method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function createBotField(string $name, string $type, string $description): array
     {
@@ -206,11 +206,11 @@ class Page extends NamedAPIStructure
      * @param integer $field_id Bot field ID
      * @param string $field_value Bot field value
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Page/post_fb_page_setBotField Documentation
      * of /fb/page/setBotField method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function setBotField(int $field_id, string $field_value): array
     {
@@ -229,11 +229,11 @@ class Page extends NamedAPIStructure
      * @param string $field_name Bot field name
      * @param string $field_value Bot field value
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Page/post_fb_page_setBotFieldByName Documentation
      * of /fb/page/setBotFieldByName method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function setBotFieldByName(string $field_name, string $field_value): array
     {

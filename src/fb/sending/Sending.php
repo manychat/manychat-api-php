@@ -39,11 +39,11 @@ class Sending extends NamedAPIStructure
      * @param array $data Content in the public content format (https://manychat.github.io/dynamic_block_docs/)
      * @param string $message_tag Message tag (https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags#supported_tags)
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Sending/post_fb_sending_sendContent Documentation
      * of /fb/sending/sendContent method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function sendContent(int $subscriber_id, array $data, string $message_tag): array
     {
@@ -63,11 +63,11 @@ class Sending extends NamedAPIStructure
      * @param integer $user_ref User ref
      * @param array $data Content in the public content format (https://manychat.github.io/dynamic_block_docs/)
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Sending/post_fb_sending_sendContentByUserRef Documentation
      * of /fb/sending/sendContentByUserRef method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function sendContentByUserRef(int $user_ref, array $data): array
     {
@@ -86,11 +86,11 @@ class Sending extends NamedAPIStructure
      * @param integer $subscriber_id Subscriber ID
      * @param string $flow_ns Flow namespace
      *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @see https://api.manychat.com/swagger#/Sending/post_fb_sending_sendFlow Documentation
      * of /fb/sending/sendFlow method at manychat.com.
      *
-     * @return array The resulting array that was received from ManyChat API
-     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function sendFlow(int $subscriber_id, string $flow_ns): array
     {
