@@ -67,7 +67,7 @@ class APIStructure
      */
     public function __set($name, $value)
     {
-        throw new InvalidActionException('ManyChat\\APIStructure object doesn\'t support property setting');
+        throw new InvalidActionException('ManyChat\\API\\APIStructure object doesn\'t support property setting');
     }
 
     /**
