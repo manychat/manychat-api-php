@@ -24,6 +24,7 @@ namespace ManyChat\API;
 
 use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\Exception\InvalidActionException;
+use ManyChat\Exception\NamespaceDepthExceedException;
 use ManyChat\Utils\Request;
 
 /**
@@ -40,6 +41,9 @@ class APIStructure
 
     /** @var APIStructure|null $parent Parent's APIStructure */
     private $parent;
+
+    /** @var int Maximum namespace depth */
+    private const MAX_NAMESPACE_DEPTH = 10;
 
     public function __construct(string $name, BaseAPI $api, ?APIStructure $parent)
     {
@@ -149,14 +153,21 @@ class APIStructure
      * @param string $name Method name
      *
      * @return string Full method path
+     * @throws NamespaceDepthExceedException If the namespace structure depth exceed self::MAX_NAMESPACE_DEPTH
      */
     protected function getMethodAddress(string $name): string
     {
         $methodAddress = '/'.$this->name.'/'.$name;
         $parent = $this->parent;
+        $namespaceDepth = 2;
         while ($parent !== null) {
             $methodAddress = '/'.$parent->name.$methodAddress;
             $parent = $parent->parent;
+
+            $namespaceDepth++;
+            if ($namespaceDepth > self::MAX_NAMESPACE_DEPTH) {
+                throw new NamespaceDepthExceedException('Namespace depth limit exceed');
+            }
         }
 
         return $methodAddress;
@@ -173,6 +184,7 @@ class APIStructure
      * @return array The resulting array that was received from ManyChat API
      * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      * @throws InvalidActionException If invalid 'method_type' was passed
+     * @throws NamespaceDepthExceedException If the namespace structure depth exceed self::MAX_NAMESPACE_DEPTH
      */
     public function __call(string $name, array $arguments): array
     {
