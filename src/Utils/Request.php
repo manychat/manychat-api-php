@@ -26,7 +26,7 @@ use ManyChat\Exception\RequestCURLException;
 
 /**
  * CURL-request wrapper
- * @package ManyChat
+ * @package ManyChat\Utils
  */
 class Request
 {

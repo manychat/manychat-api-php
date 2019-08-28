@@ -30,7 +30,7 @@ use ManyChat\Utils\Request;
 
 /**
  * Main wrapper to ManyChat's API
- * @package ManyChat
+ * @package ManyChat\API
  */
 class BaseAPI
 {

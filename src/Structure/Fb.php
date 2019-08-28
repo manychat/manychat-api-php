@@ -30,7 +30,7 @@ use ManyChat\API\NamedAPIStructure;
 
 /**
  * ManyChat's API /fb/ namespace structure wrapper
- * @package ManyChat\fb
+ * @package ManyChat\Structure
  */
 class Fb extends NamedAPIStructure
 {

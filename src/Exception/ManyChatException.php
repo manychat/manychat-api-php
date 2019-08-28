@@ -22,7 +22,9 @@
 
 namespace ManyChat\Exception;
 
-class InvalidActionException extends ManyChatException
+use Exception;
+
+class ManyChatException extends Exception
 {
 
 }

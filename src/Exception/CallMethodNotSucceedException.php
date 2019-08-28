@@ -22,9 +22,7 @@
 
 namespace ManyChat\Exception;
 
-use Exception;
-
-class CallMethodNotSucceedException extends Exception
+class CallMethodNotSucceedException extends ManyChatException
 {
 
 }

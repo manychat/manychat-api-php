@@ -22,9 +22,7 @@
 
 namespace ManyChat\Exception;
 
-use Exception;
-
-class NotInitialisedException extends Exception
+class NotInitialisedException extends ManyChatException
 {
 
 }

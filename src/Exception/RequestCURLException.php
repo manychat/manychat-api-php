@@ -22,9 +22,7 @@
 
 namespace ManyChat\Exception;
 
-use Exception;
-
-class RequestCURLException extends Exception
+class RequestCURLException extends ManyChatException
 {
 
 }

@@ -28,7 +28,7 @@ use ManyChat\Utils\Request;
 
 /**
  * Recursive API-structure builder and method-runner
- * @package ManyChat
+ * @package ManyChat\API
  */
 class APIStructure
 {

@@ -24,7 +24,7 @@ namespace ManyChat\API;
 
 /**
  * API-structure that uses for structure-element name of the class
- * @package ManyChat
+ * @package ManyChat\API
  */
 class NamedAPIStructure extends APIStructure
 {

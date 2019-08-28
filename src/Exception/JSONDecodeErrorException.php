@@ -22,9 +22,7 @@
 
 namespace ManyChat\Exception;
 
-use Exception;
-
-class JSONDecodeErrorException extends Exception
+class JSONDecodeErrorException extends ManyChatException
 {
 
 }
