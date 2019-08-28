@@ -20,12 +20,13 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace ManyChat;
+namespace ManyChat\API;
 
 use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\Exception\InvalidActionException;
 use ManyChat\Exception\JSONDecodeErrorException;
 use ManyChat\Exception\RequestCURLException;
+use ManyChat\Utils\Request;
 
 /**
  * Main wrapper to ManyChat's API

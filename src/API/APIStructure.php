@@ -20,10 +20,11 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace ManyChat;
+namespace ManyChat\API;
 
 use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\Exception\InvalidActionException;
+use ManyChat\Utils\Request;
 
 /**
  * Recursive API-structure builder and method-runner

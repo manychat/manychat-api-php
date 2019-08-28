@@ -20,35 +20,17 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace ManyChat\fb;
-
-use ManyChat\BaseAPI;
-use ManyChat\fb\page\Page;
-use ManyChat\fb\sending\Sending;
-use ManyChat\fb\subscriber\Subscriber;
-use ManyChat\NamedAPIStructure;
+namespace ManyChat\API;
 
 /**
- * ManyChat's API /fb/ namespace structure wrapper
- * @package ManyChat\fb
+ * API-structure that uses for structure-element name of the class
+ * @package ManyChat
  */
-class Fb extends NamedAPIStructure
+class NamedAPIStructure extends APIStructure
 {
-    /** @var Page ManyChat's API /fb/page/ namespace structure */
-    public $page;
-
-    /** @var Sending ManyChat's API /fb/sending/ namespace structure */
-    public $sending;
-
-    /** @var Subscriber ManyChat's API /fb/subscriber/ namespace structure */
-    public $subscriber;
-
-    public function __construct(BaseAPI $api)
+    public function __construct(BaseAPI $api, ?APIStructure $parent)
     {
-        parent::__construct($api, null);
-
-        $this->page = new Page($api, $this);
-        $this->sending = new Sending($api, $this);
-        $this->subscriber = new Subscriber($api, $this);
+        $className = strtolower(substr(strrchr(get_class($this), "\\"), 1));
+        parent::__construct($className, $api, $parent);
     }
 }

@@ -23,7 +23,8 @@
 namespace ManyChat;
 
 use ManyChat\Exception\NotInitialisedException;
-use ManyChat\fb\Fb;
+use ManyChat\API\BaseAPI;
+use ManyChat\Structure\Fb;
 
 /**
  * Main class for library usage

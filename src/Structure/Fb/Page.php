@@ -20,10 +20,10 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace ManyChat\fb\page;
+namespace ManyChat\Structure\Fb;
 
 use ManyChat\Exception\CallMethodNotSucceedException;
-use ManyChat\NamedAPIStructure;
+use ManyChat\API\NamedAPIStructure;
 use ManyChat\Request;
 
 /**
