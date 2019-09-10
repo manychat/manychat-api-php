@@ -32,7 +32,7 @@ use ManyChat\Structure\Fb;
  */
 final class ManyChat
 {
-    /** @var ManyChat $instance ManyChat class instance to use in singleton */
+    /** @var ManyChat $fbInstance ManyChat class instance to use in singleton */
     private static $fbInstance;
 
     /** @var Fb $fb ManyChat's API /fb/ namespace */
