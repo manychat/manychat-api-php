@@ -92,7 +92,7 @@
 </span><span class="l" id="line-33"><span class="php-keyword1">final</span> <span class="php-keyword1">class</span> ManyChat
 </span><span class="l" id="line-34">{
 </span><span class="l" id="line-35">    <span class="php-comment">/** @var ManyChat $instance ManyChat class instance to use in singleton */</span>
-</span><span class="l" id="line-36">    <span class="php-keyword1">private</span> <span class="php-keyword1">static</span> <span class="php-var">$instance</span>;
+</span><span class="l" id="line-36">    <span class="php-keyword1">private</span> <span class="php-keyword1">static</span> <span class="php-var">$fbInstance</span>;
 </span><span class="l" id="line-37">
 </span><span class="l" id="line-38">    <span class="php-comment">/** @var Fb $fb ManyChat's API /fb/ namespace */</span>
 </span><span class="l" id="line-39">    <span class="php-keyword1">public</span> <span class="php-var">$fb</span>;
@@ -114,13 +114,13 @@
 </span></span><span class="l" id="line-55"><span class="php-comment">     * @return ManyChat ManyChat instance
 </span></span><span class="l" id="line-56"><span class="php-comment">     * @throws NotInitialisedException If instance wasn't initialised with ManyChat::init method
 </span></span><span class="l" id="line-57"><span class="php-comment">     */</span>
-</span><span class="l" id="line-58">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> api(): ManyChat
+</span><span class="l" id="line-58">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> fbApi(): ManyChat
 </span><span class="l" id="line-59">    {
-</span><span class="l" id="line-60">        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> === <span class="php-keyword1">static</span>::<span class="php-var">$instance</span>) {
+</span><span class="l" id="line-60">        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> === <span class="php-keyword1">static</span>::<span class="php-var">$fbInstance</span>) {
 </span><span class="l" id="line-61">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> NotInitialisedException(<span class="php-quote">'Please initialise library with calling ManyChat::init method'</span>);
 </span><span class="l" id="line-62">        }
 </span><span class="l" id="line-63">
-</span><span class="l" id="line-64">        <span class="php-keyword1">return</span> <span class="php-keyword1">static</span>::<span class="php-var">$instance</span>;
+</span><span class="l" id="line-64">        <span class="php-keyword1">return</span> <span class="php-keyword1">static</span>::<span class="php-var">$fbInstance</span>;
 </span><span class="l" id="line-65">    }
 </span><span class="l" id="line-66">
 </span><span class="l" id="line-67">    <span class="php-comment">/**
@@ -128,9 +128,9 @@
 </span></span><span class="l" id="line-69"><span class="php-comment">     *
 </span></span><span class="l" id="line-70"><span class="php-comment">     * @param string $token ManyChat's API token
 </span></span><span class="l" id="line-71"><span class="php-comment">     */</span>
-</span><span class="l" id="line-72">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> init(string <span class="php-var">$token</span>): void
+</span><span class="l" id="line-72">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> fbInit(string <span class="php-var">$token</span>): void
 </span><span class="l" id="line-73">    {
-</span><span class="l" id="line-74">        <span class="php-keyword1">static</span>::<span class="php-var">$instance</span> = <span class="php-keyword1">new</span> <span class="php-keyword1">static</span>(<span class="php-var">$token</span>);
+</span><span class="l" id="line-74">        <span class="php-keyword1">static</span>::<span class="php-var">$fbInstance</span> = <span class="php-keyword1">new</span> <span class="php-keyword1">static</span>(<span class="php-var">$token</span>);
 </span><span class="l" id="line-75">    }
 </span><span class="l" id="line-76">
 </span><span class="l" id="line-77">}
