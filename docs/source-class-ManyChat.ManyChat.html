@@ -112,12 +112,12 @@
 </span></span><span class="l" id="line-53"><span class="php-comment">     * Returns ManyChat instance If singleton object was initialised
 </span></span><span class="l" id="line-54"><span class="php-comment">     *
 </span></span><span class="l" id="line-55"><span class="php-comment">     * @return ManyChat ManyChat instance
-</span></span><span class="l" id="line-56"><span class="php-comment">     * @throws NotInitialisedException If instance wasn't initialised with ManyChat::init method
+</span></span><span class="l" id="line-56"><span class="php-comment">     * @throws NotInitialisedException If instance wasn't initialised with ManyChat::fbInit method
 </span></span><span class="l" id="line-57"><span class="php-comment">     */</span>
 </span><span class="l" id="line-58">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> fbApi(): ManyChat
 </span><span class="l" id="line-59">    {
 </span><span class="l" id="line-60">        <span class="php-keyword1">if</span> (<span class="php-keyword1">null</span> === <span class="php-keyword1">static</span>::<span class="php-var">$fbInstance</span>) {
-</span><span class="l" id="line-61">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> NotInitialisedException(<span class="php-quote">'Please initialise library with calling ManyChat::init method'</span>);
+</span><span class="l" id="line-61">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> NotInitialisedException(<span class="php-quote">'Please initialise library with calling ManyChat::fbInit method'</span>);
 </span><span class="l" id="line-62">        }
 </span><span class="l" id="line-63">
 </span><span class="l" id="line-64">        <span class="php-keyword1">return</span> <span class="php-keyword1">static</span>::<span class="php-var">$fbInstance</span>;

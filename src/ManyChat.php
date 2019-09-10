@@ -53,12 +53,12 @@ final class ManyChat
      * Returns ManyChat instance If singleton object was initialised
      *
      * @return ManyChat ManyChat instance
-     * @throws NotInitialisedException If instance wasn't initialised with ManyChat::init method
+     * @throws NotInitialisedException If instance wasn't initialised with ManyChat::fbInit method
      */
     public static function fbApi(): ManyChat
     {
         if (null === static::$fbInstance) {
-            throw new NotInitialisedException('Please initialise library with calling ManyChat::init method');
+            throw new NotInitialisedException('Please initialise library with calling ManyChat::fbInit method');
         }
 
         return static::$fbInstance;
