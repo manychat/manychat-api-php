@@ -22,6 +22,7 @@
 
 namespace ManyChat\Utils;
 
+use ManyChat\Exception\HTTPNotFoundException;
 use ManyChat\Exception\RequestCURLException;
 
 /**
@@ -32,8 +33,12 @@ class Request
 {
     /** @var integer HTTP method GET */
     public const GET = 1;
+
     /** @var integer HTTP method POST */
     public const POST = 2;
+
+    /** @var integer HTTP Not Found status code */
+    public const HTTP_NOTFOUND_CODE = 404;
 
     /** @var resource|false $curl CURL session object */
     private $curl;
@@ -58,6 +63,7 @@ class Request
      *
      * @return string Request's response
      * @throws RequestCURLException If the request didn't succeed
+     * @throws HTTPNotFoundException If the server's reply is HTTP Not Found code (404)
      */
     public function request(array $curlOptions): string
     {
@@ -70,9 +76,15 @@ class Request
 
         $options = $this->defaultCURLOptions + $curlOptions;
         curl_setopt_array($this->curl, $options);
+
         $result = curl_exec($this->curl);
         if ($result === false) {
             throw new RequestCURLException(curl_error($this->curl), curl_errno($this->curl));
+        }
+
+        $responseCode = curl_getinfo($this->curl, CURLINFO_RESPONSE_CODE);
+        if ($responseCode === self::HTTP_NOTFOUND_CODE) {
+            throw new HTTPNotFoundException("404 Not Found: {$options[CURLOPT_URL]}");
         }
 
         return $result;

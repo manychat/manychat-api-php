@@ -33,7 +33,7 @@ use ManyChat\Structure\Fb;
 final class ManyChat
 {
     /** @var ManyChat $instance ManyChat class instance to use in singleton */
-    private static $instance;
+    private static $fbInstance;
 
     /** @var Fb $fb ManyChat's API /fb/ namespace */
     public $fb;
@@ -55,13 +55,13 @@ final class ManyChat
      * @return ManyChat ManyChat instance
      * @throws NotInitialisedException If instance wasn't initialised with ManyChat::init method
      */
-    public static function api(): ManyChat
+    public static function fbApi(): ManyChat
     {
-        if (null === static::$instance) {
+        if (null === static::$fbInstance) {
             throw new NotInitialisedException('Please initialise library with calling ManyChat::init method');
         }
 
-        return static::$instance;
+        return static::$fbInstance;
     }
 
     /**
@@ -69,9 +69,9 @@ final class ManyChat
      *
      * @param string $token ManyChat's API token
      */
-    public static function init(string $token): void
+    public static function fbInit(string $token): void
     {
-        static::$instance = new static($token);
+        static::$fbInstance = new static($token);
     }
 
 }

@@ -45,6 +45,9 @@ class APIStructure
     /** @var int Maximum namespace depth */
     private const MAX_NAMESPACE_DEPTH = 10;
 
+    /** @var string Namespace separator */
+    private const NAMESPACE_SEPARATOR = '/';
+
     public function __construct(string $name, BaseAPI $api, ?APIStructure $parent)
     {
         $this->name = $name;
@@ -157,11 +160,11 @@ class APIStructure
      */
     protected function getMethodAddress(string $name): string
     {
-        $methodAddress = '/'.$this->name.'/'.$name;
+        $methodAddress = self::NAMESPACE_SEPARATOR.$this->name.self::NAMESPACE_SEPARATOR.$name;
         $parent = $this->parent;
         $namespaceDepth = 2;
         while ($parent !== null) {
-            $methodAddress = '/'.$parent->name.$methodAddress;
+            $methodAddress = self::NAMESPACE_SEPARATOR.$parent->name.$methodAddress;
             $parent = $parent->parent;
 
             $namespaceDepth++;
