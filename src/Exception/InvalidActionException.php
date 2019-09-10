@@ -20,9 +20,9 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace ManyChat;
+namespace ManyChat\Exception;
 
-class API
+class InvalidActionException extends ManyChatException
 {
 
 }
