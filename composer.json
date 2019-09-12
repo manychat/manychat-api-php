@@ -2,7 +2,7 @@
     "name": "manychat/manychat-api",
     "description": "ManyChat API PHP library",
     "keywords": ["manychat", "php", "chatbot"],
-    "license": "GPL-3.0-only",
+    "license": "MIT",
     "authors": [
         {
             "name": "Yury Gavrilov",
