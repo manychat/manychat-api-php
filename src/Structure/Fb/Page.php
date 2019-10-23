@@ -191,7 +191,7 @@ class Page extends NamedAPIStructure
      * Sets bot field value by its ID
      *
      * @param integer $field_id Bot field ID
-     * @param string $field_value Bot field value
+     * @param string|int|null $field_value Bot field value
      *
      * @return array The resulting array that was received from ManyChat API
      * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -199,7 +199,7 @@ class Page extends NamedAPIStructure
      * of /fb/page/setBotField method at manychat.com.
      *
      */
-    public function setBotField(int $field_id, string $field_value): array
+    public function setBotField(int $field_id, $field_value): array
     {
         $arguments = [
             'field_id' => $field_id,
@@ -214,7 +214,7 @@ class Page extends NamedAPIStructure
      * Sets bot field value by its name
      *
      * @param string $field_name Bot field name
-     * @param string $field_value Bot field value
+     * @param string|int|null $field_value Bot field value
      *
      * @return array The resulting array that was received from ManyChat API
      * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -222,7 +222,7 @@ class Page extends NamedAPIStructure
      * of /fb/page/setBotFieldByName method at manychat.com.
      *
      */
-    public function setBotFieldByName(string $field_name, string $field_value): array
+    public function setBotFieldByName(string $field_name, $field_value): array
     {
         $arguments = [
             'field_name' => $field_name,
