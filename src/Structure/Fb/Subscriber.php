@@ -202,7 +202,7 @@ class Subscriber extends NamedAPIStructure
      *
      * @param integer $subscriber_id Subscriber ID
      * @param integer $field_id Custom field ID
-     * @param string $field_value Custom field value
+     * @param string|null $field_value Custom field value
      *
      * @return array The resulting array that was received from ManyChat API
      * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -210,7 +210,7 @@ class Subscriber extends NamedAPIStructure
      * of /fb/subscriber/setCustomField method at manychat.com.
      *
      */
-    public function setCustomField(int $subscriber_id, int $field_id, string $field_value): array
+    public function setCustomField(int $subscriber_id, int $field_id, ?string $field_value): array
     {
         $arguments = [
             'subscriber_id' => $subscriber_id,
@@ -227,7 +227,7 @@ class Subscriber extends NamedAPIStructure
      *
      * @param integer $subscriber_id Subscriber ID
      * @param string $field_name Custom field ID
-     * @param string $field_value Custom field value
+     * @param string|null $field_value Custom field value
      *
      * @return array The resulting array that was received from ManyChat API
      * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -235,7 +235,7 @@ class Subscriber extends NamedAPIStructure
      * of /fb/subscriber/setCustomFieldByName method at manychat.com.
      *
      */
-    public function setCustomFieldByName(int $subscriber_id, string $field_name, string $field_value): array
+    public function setCustomFieldByName(int $subscriber_id, string $field_name, ?string $field_value): array
     {
         $arguments = [
             'subscriber_id' => $subscriber_id,
