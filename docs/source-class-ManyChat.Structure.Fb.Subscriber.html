@@ -145,7 +145,7 @@
 </span></span><span class="l" id="line-86"><span class="php-comment">     * Finds subscribers by custom field value
 </span></span><span class="l" id="line-87"><span class="php-comment">     *
 </span></span><span class="l" id="line-88"><span class="php-comment">     * @param integer $field_id Custom field ID
-</span></span><span class="l" id="line-89"><span class="php-comment">     * @param string $field_value Custom field value
+</span></span><span class="l" id="line-89"><span class="php-comment">     * @param string|int|null $field_value Custom field value
 </span></span><span class="l" id="line-90"><span class="php-comment">     *
 </span></span><span class="l" id="line-91"><span class="php-comment">     * @return array The resulting array that was received from ManyChat API
 </span></span><span class="l" id="line-92"><span class="php-comment">     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -153,7 +153,7 @@
 </span></span><span class="l" id="line-94"><span class="php-comment">     * of /fb/subscriber/findByCustomField method at manychat.com.
 </span></span><span class="l" id="line-95"><span class="php-comment">     *
 </span></span><span class="l" id="line-96"><span class="php-comment">     */</span>
-</span><span class="l" id="line-97">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> findByCustomField(int <span class="php-var">$field_id</span>, string <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
+</span><span class="l" id="line-97">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> findByCustomField(int <span class="php-var">$field_id</span>, <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
 </span><span class="l" id="line-98">    {
 </span><span class="l" id="line-99">        <span class="php-var">$arguments</span> = [
 </span><span class="l" id="line-100">            <span class="php-quote">'field_id'</span> =&gt; <span class="php-var">$field_id</span>,
@@ -261,7 +261,7 @@
 </span></span><span class="l" id="line-202"><span class="php-comment">     *
 </span></span><span class="l" id="line-203"><span class="php-comment">     * @param integer $subscriber_id Subscriber ID
 </span></span><span class="l" id="line-204"><span class="php-comment">     * @param integer $field_id Custom field ID
-</span></span><span class="l" id="line-205"><span class="php-comment">     * @param string $field_value Custom field value
+</span></span><span class="l" id="line-205"><span class="php-comment">     * @param string|int|null $field_value Custom field value
 </span></span><span class="l" id="line-206"><span class="php-comment">     *
 </span></span><span class="l" id="line-207"><span class="php-comment">     * @return array The resulting array that was received from ManyChat API
 </span></span><span class="l" id="line-208"><span class="php-comment">     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -269,7 +269,7 @@
 </span></span><span class="l" id="line-210"><span class="php-comment">     * of /fb/subscriber/setCustomField method at manychat.com.
 </span></span><span class="l" id="line-211"><span class="php-comment">     *
 </span></span><span class="l" id="line-212"><span class="php-comment">     */</span>
-</span><span class="l" id="line-213">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setCustomField(int <span class="php-var">$subscriber_id</span>, int <span class="php-var">$field_id</span>, string <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
+</span><span class="l" id="line-213">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setCustomField(int <span class="php-var">$subscriber_id</span>, int <span class="php-var">$field_id</span>, <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
 </span><span class="l" id="line-214">    {
 </span><span class="l" id="line-215">        <span class="php-var">$arguments</span> = [
 </span><span class="l" id="line-216">            <span class="php-quote">'subscriber_id'</span> =&gt; <span class="php-var">$subscriber_id</span>,
@@ -286,7 +286,7 @@
 </span></span><span class="l" id="line-227"><span class="php-comment">     *
 </span></span><span class="l" id="line-228"><span class="php-comment">     * @param integer $subscriber_id Subscriber ID
 </span></span><span class="l" id="line-229"><span class="php-comment">     * @param string $field_name Custom field ID
-</span></span><span class="l" id="line-230"><span class="php-comment">     * @param string $field_value Custom field value
+</span></span><span class="l" id="line-230"><span class="php-comment">     * @param string|int|null $field_value Custom field value
 </span></span><span class="l" id="line-231"><span class="php-comment">     *
 </span></span><span class="l" id="line-232"><span class="php-comment">     * @return array The resulting array that was received from ManyChat API
 </span></span><span class="l" id="line-233"><span class="php-comment">     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -294,7 +294,7 @@
 </span></span><span class="l" id="line-235"><span class="php-comment">     * of /fb/subscriber/setCustomFieldByName method at manychat.com.
 </span></span><span class="l" id="line-236"><span class="php-comment">     *
 </span></span><span class="l" id="line-237"><span class="php-comment">     */</span>
-</span><span class="l" id="line-238">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setCustomFieldByName(int <span class="php-var">$subscriber_id</span>, string <span class="php-var">$field_name</span>, string <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
+</span><span class="l" id="line-238">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setCustomFieldByName(int <span class="php-var">$subscriber_id</span>, string <span class="php-var">$field_name</span>, <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
 </span><span class="l" id="line-239">    {
 </span><span class="l" id="line-240">        <span class="php-var">$arguments</span> = [
 </span><span class="l" id="line-241">            <span class="php-quote">'subscriber_id'</span> =&gt; <span class="php-var">$subscriber_id</span>,

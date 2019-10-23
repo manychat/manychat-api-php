@@ -250,7 +250,7 @@
 </span></span><span class="l" id="line-191"><span class="php-comment">     * Sets bot field value by its ID
 </span></span><span class="l" id="line-192"><span class="php-comment">     *
 </span></span><span class="l" id="line-193"><span class="php-comment">     * @param integer $field_id Bot field ID
-</span></span><span class="l" id="line-194"><span class="php-comment">     * @param string $field_value Bot field value
+</span></span><span class="l" id="line-194"><span class="php-comment">     * @param string|int|null $field_value Bot field value
 </span></span><span class="l" id="line-195"><span class="php-comment">     *
 </span></span><span class="l" id="line-196"><span class="php-comment">     * @return array The resulting array that was received from ManyChat API
 </span></span><span class="l" id="line-197"><span class="php-comment">     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -258,7 +258,7 @@
 </span></span><span class="l" id="line-199"><span class="php-comment">     * of /fb/page/setBotField method at manychat.com.
 </span></span><span class="l" id="line-200"><span class="php-comment">     *
 </span></span><span class="l" id="line-201"><span class="php-comment">     */</span>
-</span><span class="l" id="line-202">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setBotField(int <span class="php-var">$field_id</span>, string <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
+</span><span class="l" id="line-202">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setBotField(int <span class="php-var">$field_id</span>, <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
 </span><span class="l" id="line-203">    {
 </span><span class="l" id="line-204">        <span class="php-var">$arguments</span> = [
 </span><span class="l" id="line-205">            <span class="php-quote">'field_id'</span> =&gt; <span class="php-var">$field_id</span>,
@@ -273,7 +273,7 @@
 </span></span><span class="l" id="line-214"><span class="php-comment">     * Sets bot field value by its name
 </span></span><span class="l" id="line-215"><span class="php-comment">     *
 </span></span><span class="l" id="line-216"><span class="php-comment">     * @param string $field_name Bot field name
-</span></span><span class="l" id="line-217"><span class="php-comment">     * @param string $field_value Bot field value
+</span></span><span class="l" id="line-217"><span class="php-comment">     * @param string|int|null $field_value Bot field value
 </span></span><span class="l" id="line-218"><span class="php-comment">     *
 </span></span><span class="l" id="line-219"><span class="php-comment">     * @return array The resulting array that was received from ManyChat API
 </span></span><span class="l" id="line-220"><span class="php-comment">     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
@@ -281,7 +281,7 @@
 </span></span><span class="l" id="line-222"><span class="php-comment">     * of /fb/page/setBotFieldByName method at manychat.com.
 </span></span><span class="l" id="line-223"><span class="php-comment">     *
 </span></span><span class="l" id="line-224"><span class="php-comment">     */</span>
-</span><span class="l" id="line-225">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setBotFieldByName(string <span class="php-var">$field_name</span>, string <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
+</span><span class="l" id="line-225">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setBotFieldByName(string <span class="php-var">$field_name</span>, <span class="php-var">$field_value</span>): <span class="php-keyword1">array</span>
 </span><span class="l" id="line-226">    {
 </span><span class="l" id="line-227">        <span class="php-var">$arguments</span> = [
 </span><span class="l" id="line-228">            <span class="php-quote">'field_name'</span> =&gt; <span class="php-var">$field_name</span>,
