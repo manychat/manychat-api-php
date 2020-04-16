@@ -11,6 +11,10 @@ namespace ManyChat\Structure\Fb;
 
 use ManyChat\Exception\CallMethodNotSucceedException;
 use ManyChat\API\NamedAPIStructure;
+use ManyChat\Exception\InvalidActionException;
+use ManyChat\Exception\JSONDecodeErrorException;
+use ManyChat\Exception\NamespaceDepthExceedException;
+use ManyChat\Exception\RequestCURLException;
 use ManyChat\Utils\Request;
 
 /**
@@ -264,6 +268,46 @@ class Subscriber extends NamedAPIStructure
         $arguments = [
             'subscriber_id' => $subscriber_id,
             'signed_request' => $signed_request,
+        ];
+        $methodName = $this->getMethodAddress(__FUNCTION__);
+
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
+    }
+
+    /**
+     * Create new subscriber
+     *
+     * `phone` or `email` fields is required
+     * field `consent_phrase` is required only if has_opt_in is true
+     *
+     * @see https://api.manychat.com/swagger#/operations/Subscriber/post_fb_subscriber_createSubscriber
+     *
+     * @param bool $has_opt_in
+     * @param string|null $consent_phrase
+     * @param string|null $phone
+     * @param string|null $email
+     * @param string|null $first_name
+     * @param string|null $last_name
+     * @param string|null $gender
+     *
+     * @return array The resulting array that was received from ManyChat API
+     *
+     * @throws CallMethodNotSucceedException
+     * @throws InvalidActionException
+     * @throws JSONDecodeErrorException
+     * @throws NamespaceDepthExceedException
+     * @throws RequestCURLException
+     */
+    public function createSubscriber(bool $has_opt_in, ?string $consent_phrase, ?string $phone, ?string $email, string $first_name = null, string $last_name = null, string $gender = null): array
+    {
+        $arguments = [
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'phone' => $phone,
+            'email' => $email,
+            'gender' => $gender,
+            'has_opt_in' => $has_opt_in,
+            'consent_phrase' => $consent_phrase,
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
