@@ -282,7 +282,8 @@ class Subscriber extends NamedAPIStructure
      *
      * @see https://api.manychat.com/swagger#/operations/Subscriber/post_fb_subscriber_createSubscriber
      *
-     * @param bool $has_opt_in
+     * @param bool|null $has_opt_in_sms
+     * @param bool|null $has_opt_in_email
      * @param string|null $consent_phrase
      * @param string|null $phone
      * @param string|null $email
@@ -298,7 +299,7 @@ class Subscriber extends NamedAPIStructure
      * @throws NamespaceDepthExceedException
      * @throws RequestCURLException
      */
-    public function createSubscriber(bool $has_opt_in, ?string $consent_phrase, ?string $phone, ?string $email, string $first_name = null, string $last_name = null, string $gender = null): array
+    public function createSubscriber(?bool $has_opt_in_sms, ?bool $has_opt_in_email, ?string $consent_phrase, ?string $phone, ?string $email, string $first_name = null, string $last_name = null, string $gender = null): array
     {
         $arguments = [
             'first_name' => $first_name,
@@ -306,7 +307,8 @@ class Subscriber extends NamedAPIStructure
             'phone' => $phone,
             'email' => $email,
             'gender' => $gender,
-            'has_opt_in' => $has_opt_in,
+            'has_opt_in_sms' => $has_opt_in_sms,
+            'has_opt_in_email' => $has_opt_in_email,
             'consent_phrase' => $consent_phrase,
         ];
         $methodName = $this->getMethodAddress(__FUNCTION__);
