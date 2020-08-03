@@ -115,6 +115,8 @@ class Page extends NamedAPIStructure
     }
 
     /**
+     * @deprecated use getGrowthTools method instead
+     *
      * Gets current page widgets
      *
      * @see https://api.manychat.com/swagger#/Page/get_fb_page_getWidgets Documentation
@@ -131,6 +133,65 @@ class Page extends NamedAPIStructure
     }
 
     /**
+     * Creates custom field
+     *
+     * @param string $caption Custom field name
+     * @param string $type Custom field type: text, number, date, datetime, boolean
+     * @param string|null $description Custom field description
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     * @see https://api.manychat.com/swagger#/Page/post_fb_page_createCustomField Documentation
+     * of /fb/page/createCustomField method at manychat.com.
+     *
+     */
+    public function createCustomField(string $caption, string $type, ?string $description = null): array
+    {
+        $arguments = [
+            'caption' => $caption,
+            'type' => $type,
+        ];
+        if (null !== $description) {
+            $arguments['description'] = $description;
+        }
+        $methodName = $this->getMethodAddress(__FUNCTION__);
+
+        return $this->getApi()->callMethod($methodName, $arguments, Request::POST);
+    }
+
+    /**
+     * Gets current page growth tools
+     *
+     * @see https://api.manychat.com/swagger#/Page/get_fb_page_getGrowthTools Documentation
+     * of /fb/page/getGrowthTools method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
+    public function getGrowthTools(): array
+    {
+        $methodName = $this->getMethodAddress(__FUNCTION__);
+
+        return $this->getApi()->callMethod($methodName);
+    }
+
+    /**
+     * Gets current page flows
+     *
+     * @see https://api.manychat.com/swagger#/Page/get_fb_page_getFlows Documentation
+     * of /fb/page/getFlows method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
+    public function getFlows(): array
+    {
+        $methodName = $this->getMethodAddress(__FUNCTION__);
+
+        return $this->getApi()->callMethod($methodName);
+    }
+
+    /**
      * Gets current page custom fields
      *
      * @see https://api.manychat.com/swagger#/Page/get_fb_page_getCustomFields Documentation
@@ -140,6 +201,22 @@ class Page extends NamedAPIStructure
      * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
      */
     public function getCustomFields(): array
+    {
+        $methodName = $this->getMethodAddress(__FUNCTION__);
+
+        return $this->getApi()->callMethod($methodName);
+    }
+
+    /**
+     * Gets current page One-Time Notification topics
+     *
+     * @see https://api.manychat.com/swagger#/Page/get_fb_page_getOtnTopics Documentation
+     * of /fb/page/getOtnTopics method at manychat.com.
+     *
+     * @return array The resulting array that was received from ManyChat API
+     * @throws CallMethodNotSucceedException If the result of calling method didn't succeed
+     */
+    public function getOtnTopics(): array
     {
         $methodName = $this->getMethodAddress(__FUNCTION__);
 
